@@ -1,10 +1,8 @@
-Objective
-Using React, build the client-side for an app called myFlix based on its
-existing server-side code (REST API and database)
+##Objective
+Using React, build the client-side for an app called myFlix based on its existing server-side code (REST API and database)
 
-Context
-create the
-interface they’ll use when making requests to—and receiving responses from—the server-side. The
+##Context
+create the interface they’ll use when making requests to—and receiving responses from—the server-side. The
 client-side of your myFlix app will include several interface views (built using the React library) that will
 handle data through the (previously defined) REST API endpoints.
 By the end of the Achievement, you’ll have a complete web app (client-side and server-side) built using
@@ -12,13 +10,13 @@ full-stack JavaScript technologies, which you can then showcase in your portfoli
 demonstrate your mastery of full-stack JavaScript development. The complete tech stack you’ll
 master is known as the MERN (MongoDB, Express, React, and Node.js) stack.
 
-Design Criteria
+##Design Criteria
 User Stories
 ● As a user, I want to be able to access information about movies so that I can learn more
 about movies I’ve watched or am interested in.
 ● As a user, I want to be able to create a profile so I can save data about my favorite movies.
 
-Essential Views & Features:
+##Essential Views & Features:
 Main view
 ● Returns ALL movies to the user (each movie item with an image, title, and description)
 ● Filtering the list of movies with a “search” feature
