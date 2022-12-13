@@ -75,3 +75,10 @@ return (
     </div>
   );
 };
+
+if (selectedBook) {
+    return (
+      <BookView book={selectedBook} onBackClick={() => setSelectedBook(null)} />
+    );
+  }
+  
