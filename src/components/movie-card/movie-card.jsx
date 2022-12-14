@@ -13,7 +13,7 @@
           onMovieClick(movie);
         }}
       >
-        {movie.title}
+        {movie.Title}
       </div>
     );
   };
