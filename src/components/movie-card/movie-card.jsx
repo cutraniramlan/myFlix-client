@@ -6,14 +6,14 @@
     return <div>{props.book.title}</div>;
   }; */
 
-  export const BookCard = ({ book }) => {
+  export const MovieCard = ({ movie, onMovieClick }) => {
     return (
       <div
         onClick={() => {
-          setSelectedBook(book);
+          onMovieClick(movie);
         }}
       >
-        {book.title}
+        {movie.title}
       </div>
     );
   };

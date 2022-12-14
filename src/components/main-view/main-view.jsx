@@ -1,84 +1,61 @@
 import { useState } from "react";
-import { BookCard } from "../book-card/book-card";
-import { BookView } from "../book-view/book-view";
+import { MovieCard } from "../movie-card/movie-card";
+import { MovieView } from "../movie-view/movie-view";
 
 export const MainView = () => {
-  const [books, setBooks] = useState([
+  const [movies, setMovies] = useState([
     {
       id: 1,
-      title: "Eloquent JavaScript",
       image:
-        "https://images-na.ssl-images-amazon.com/images/I/51InjRPaF7L._SX377_BO1,204,203,200_.jpg",
-      author: "Marijn Haverbeke"
+        "https://lumiere-a.akamaihd.net/v1/images/image_fc5cb742.jpeg?region=0%2C0%2C540%2C810",
+        Title: "The Lion King",
+        Description: "Disney's The Lion King is about a young lion named Simba, who is the crown prince of an African Savanna. When his father dies in an accident staged by his uncle, Simba is made to feel responsible for his father's death and must overcome his fear of taking responsibility as the rightful heir to the throne.",
+        Genre: "Drama",
+        Director: "Roger Allers"
     },
     {
       id: 2,
-      title: "Mastering JavaScript Functional Programming",
       image:
-        "https://images-na.ssl-images-amazon.com/images/I/51WAikRq37L._SX218_BO1,204,203,200_QL40_FMwebp_.jpg",
-      author: "Federico Kereki"
+        "https://www.imdb.com/title/tt2771200/mediaviewer/rm2049982208/?ref_=tt_ov_i",
+        Title: "Beauty and The Beast",
+        Description: "Belle, a village girl, embarks on a journey to save her father from a creature that has locked him in his dungeon. Eventually, she learns that the creature is an enchanted prince who has been cursed.",
+        Genre: "Romance",
+        Director: "Gary Trousdale"
     },
     {
       id: 3,
-      title: "JavaScript: The Good Parts",
       image:
-        "https://images-na.ssl-images-amazon.com/images/I/5131OWtQRaL._SX381_BO1,204,203,200_.jpg",
-      author: "Douglas Crockford"
-    },
-    {
-      id: 4,
-      title: "JavaScript: The Definitive Guide",
-      image:
-        "https://images-na.ssl-images-amazon.com/images/I/51HbNW6RzhL._SX218_BO1,204,203,200_QL40_FMwebp_.jpg",
-      author: "David Flanagan"
-    },
-    {
-      id: 5,
-      title: "The Road to React",
-      image:
-        "https://images-na.ssl-images-amazon.com/images/I/41MBLi5a4jL._SX384_BO1,204,203,200_.jpg",
-      author: "Robin Wieruch"
+        "https://www.themoviedb.org/t/p/original/plcZXvI310FkbwIptvd6rqk63LP.jpg",
+        Title: "The Little Mermaid",
+        Description:"Ursula, the sea witch, makes a devious deal with Princess Ariel allowing her to meet Eric, the human prince she loves. Unaware of her true intentions, Ariel lands herself in trouble.",
+        Genre: "Fantasy",
+        Director: "John Musker"
     }
   ]);
 
-  const [selectedBook, setSelectedBook] = useState(null);
+  const [selectedMovie, setSelectedMovie] = useState(null);
 
-  if (selectedBook) {
-    return <BookView book={selectedBook} />;
+  if (selectedMovie) {
+    return (
+      <MovieView movie={selectedMovie} onBackClick={() => setSelectedMovie(null)} />
+    );
   }
 
-  if (books.length === 0) {
+  if (movies.length === 0) {
     return <div>The list is empty!</div>;
   }
 
   return (
     <div>
-      {books.map((book) => (
-        <BookCard key={book.id} book={book} />
-      ))}
-    </div>
-  );
-
-
-return (
-    <div>
-      <button
-        onClick={() => {
-          alert("Nice!");
-        }}
-      >
-        Click me!
-      </button>
-      {books.map((book) => (
-        <BookCard key={book.id} book={book} />
+      {movies.map((movie) => (
+        <MovieCard
+          key={movie.id}
+          book={movie}
+          onBookClick={(newSelectedMovie) => {
+            setSelectedMovie(newSelectedMovie);
+          }}
+        />
       ))}
     </div>
   );
 };
-
-if (selectedBook) {
-    return (
-      <BookView book={selectedBook} onBackClick={() => setSelectedBook(null)} />
-    );
-  }
-  
