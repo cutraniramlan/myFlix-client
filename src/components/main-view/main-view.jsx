@@ -16,7 +16,7 @@ export const MainView = () => {
     {
       id: 2,
       image:
-        "https://www.imdb.com/title/tt2771200/mediaviewer/rm2049982208/?ref_=tt_ov_i",
+        "https://www.iposters.co.uk/media/catalog/product/0/5/0524BE_3.jpg?width=700&height=1000&store=default&image-type=image",
         Title: "Beauty and The Beast",
         Description: "Belle, a village girl, embarks on a journey to save her father from a creature that has locked him in his dungeon. Eventually, she learns that the creature is an enchanted prince who has been cursed.",
         Genre: "Romance",
@@ -25,7 +25,7 @@ export const MainView = () => {
     {
       id: 3,
       image:
-        "https://www.themoviedb.org/t/p/original/plcZXvI310FkbwIptvd6rqk63LP.jpg",
+        "https://alternativemovieposters.com/wp-content/uploads/2021/06/YohannAntoine_LittleMermaid.jpg",
         Title: "The Little Mermaid",
         Description:"Ursula, the sea witch, makes a devious deal with Princess Ariel allowing her to meet Eric, the human prince she loves. Unaware of her true intentions, Ariel lands herself in trouble.",
         Genre: "Fantasy",
