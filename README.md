@@ -8,9 +8,8 @@ create the interface they’ll use when making requests to—and receiving respo
 
 ## Design Criteria
 User Stories
-* As a user, I want to be able to access information about movies so that I can learn more
-about movies I’ve watched or am interested in.
-* As a user, I want to be able to create a profile so I can save data about my favorite movies.
+* user able to access information about movies so that I can learn more about movies I’ve watched or am interested in.
+* user able to create a profile so I can save data about my favorite movies.
 
 ## Essential Views & Features:
 
