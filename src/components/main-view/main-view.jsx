@@ -50,8 +50,8 @@ export const MainView = () => {
       {movies.map((movie) => (
         <MovieCard
           key={movie.id}
-          book={movie}
-          onBookClick={(newSelectedMovie) => {
+          movie={movie}
+          onMovieClick={(newSelectedMovie) => {
             setSelectedMovie(newSelectedMovie);
           }}
         />
