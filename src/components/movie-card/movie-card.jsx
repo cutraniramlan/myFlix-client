@@ -1,19 +1,26 @@
-/* export const BookCard = () => {
-    return <div>some title</div>;
-  };
- */
-/* export const BookCard = (props) => {
-    return <div>{props.book.title}</div>;
-  }; */
+import React            from "react";
+// Here you import the PropTypes library
+import PropTypes from "prop-types";
 
-  export const MovieCard = ({ movie, onMovieClick }) => {
-    return (
-      <div
-        onClick={() => {
-          onMovieClick(movie);
-        }}
-      >
-        {movie.Title}
-      </div>
-    );
-  };
+// The MovieCard function component 
+export const MovieCard = ({ movie, onMovieClick }) => {
+  return (
+    <div
+      onClick={() => {
+        onMovieClick(movie);
+      }}
+    >
+      {movie.Title}
+    </div>
+  );
+};
+
+// Here is where we define all the props constraints for the MovieCard
+MovieCard.propTypes = {
+  movie: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    image: PropTypes.string.isRequired,
+    director: PropTypes.string
+  }).isRequired,
+  onMovieClick: PropTypes.func.isRequired
+};
