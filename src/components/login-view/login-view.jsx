@@ -44,7 +44,7 @@ export const LoginView = ({ onLoggedIn }) => {
           Birthday: birthday
         };
     
-        fetch("https://movie-api-rani-1.herokuapp.com/", {
+        fetch("https://movie-api-rani-1.herokuapp.com/login", {
           method: "POST",
           body: JSON.stringify(data),
           headers: {
@@ -59,7 +59,7 @@ export const LoginView = ({ onLoggedIn }) => {
           }
         });
       };
-      
+
   return (
     <form onSubmit={handleSubmit}>
       <label>
