@@ -68,7 +68,7 @@ import { SignupView } from "../signup-view/signup-view";
    }, [token]);
   
     // rest of the code
-  }
+
   <button onClick={() => { setUser(null); setToken(null); localStorage.clear(); }}>Logout</button>
 
   /* if (!user) {
@@ -119,4 +119,4 @@ import { SignupView } from "../signup-view/signup-view";
       ))}
     </div>
   );
-
+}
