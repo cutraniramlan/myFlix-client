@@ -13,7 +13,7 @@ export const SignupView = () => {
 
   /* return (
     <form onSubmit={handleSubmit}>
-      <label>
+      <label  >
         Username:
         <input
           type="text"
