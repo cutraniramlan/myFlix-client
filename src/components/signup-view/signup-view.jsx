@@ -1,4 +1,7 @@
-  export const SignupView = () => {
+import{ useState } from "react";
+import { Form, Button  } from "react-bootstrap"
+
+export const SignupView = () => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [email, setEmail] = useState("");
