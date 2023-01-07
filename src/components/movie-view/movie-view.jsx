@@ -11,15 +11,15 @@ export const MovieView = ({ movies}) => {
     return (
       <div>
         <div>
-        <img className="w-100" src={movie.image} />
+        <img className="w-100" src={book.image} />
         </div>
         <div>
-          <span>title: </span>
-          <span>{movie.title}</span>
+          <span>Title: </span>
+          <span>{movie.Title}</span>
         </div>
         <div>
-          <span>director: </span>
-          <span>{movie.director}</span>
+          <span>Director: </span>
+          <span>{movie.Director}</span>
         </div>
         <Link to={`/`}>
         <button className="back-button">Back</button>
