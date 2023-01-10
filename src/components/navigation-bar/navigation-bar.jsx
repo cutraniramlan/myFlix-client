@@ -1,9 +1,12 @@
 import { Navbar, Container, Nav } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import Container from "react-bootstrap/Container";
+
+import "./navigation-bar.scss";
 
 export const NavigationBar = ({ user, onLoggedOut }) => {
   return (
-    <Navbar bg="light" expand="lg">
+    <Navbar bg="light" variant="light" expand="lg">
       <Container>
         <Navbar.Brand as={Link} to="/">
           MyFlix App
@@ -23,8 +26,8 @@ export const NavigationBar = ({ user, onLoggedOut }) => {
             )}
             {user && (
               <>
-                <Nav.Link as={Link} to="/">
-                  Home
+                <Nav.Link as={Link} to={`/user`}>
+                  {user.Username}
                 </Nav.Link>
                 <Nav.Link onClick={onLoggedOut}>Logout</Nav.Link>
               </>

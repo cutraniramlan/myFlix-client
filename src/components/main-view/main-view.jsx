@@ -3,34 +3,60 @@ import { MovieCard } from "../movie-card/movie-card";
 import { MovieView } from "../movie-view/movie-view";
 import { LoginView } from "../login-view/login-view";
 import { SignupView } from "../signup-view/signup-view";
+import {ProfileView} from "../profile-view/profile-view";
+import { NavigationBar } from "../navigation-bar/navigation-bar";
 import { Navbar, Nav, Container, Row, Col, Button } from "react-bootstrap";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 
 
 export const MainView = () => {
-  const [movies, setMovies] = useState([]);
-  const [selectedMovie, setSelectedMovie] = useState(null);
+  const storedUser = JSON.parse(localStorage.getItem("user"));
+  const storedToken = localStorage.getItem("token");
   const [user, setUser] = useState(null);
+  const [movies, setMovies] = useState([]);
 
   useEffect(() => {
-    fetch("https://openlibrary.org/search.json?q=star+wars")
+    if (!token) return;
+    fetch("https://movie-api-rani-1.herokuapp.com/", {
+      headers: { Authorization: `Bearer ${token}` },
+    })
       .then((response) => response.json())
       .then((data) => {
-        const moviesFromApi = data.docs.map((doc) => {
-          return {
-            id: doc.key,
-            title: doc.title,
-            image: `https://covers.openlibrary.org/b/id/${doc.cover_i}-L.jpg`,
-            author: doc.author_name?.[0]
+        const moviesFromApi = data.map((item) => {
+          var moviesToReturn = {
+            id: item._id,
+            description: item.description,
+            image: item.ImagePath,
+            title: item.Title,
+            genre: {
+              name: item.genre.name,
+              description: item.genre.description,
+            },
+            director: {
+              name: item.director.name,
+              bio: item.director.bio,
+              birth: item.director.birth,
+              death: item.director.death,
+            },
           };
+          return moviesToReturn;
         });
-
         setMovies(moviesFromApi);
       });
-  }, []);
+  }, [token]);
+
+
   return (
     <BrowserRouter>
+     <NavigationBar
+        user={user}
+        onLoggedOut={() => {
+          setUser(null);
+          setToken(null);
+          localStorage.clear();
+        }}
+      />
       <Row className="justify-content-md-center">
         <Routes>
           <Route
@@ -40,7 +66,7 @@ export const MainView = () => {
                 {user ? (
                   <Navigate to="/" />
                 ) : (
-                  <Col md={5}>
+                  <Col md={5} xs={12}>
                     <SignupView />
                   </Col>
                 )}
@@ -54,13 +80,19 @@ export const MainView = () => {
                 {user ? (
                   <Navigate to="/" />
                 ) : (
-                  <Col md={5}>
-                    <LoginView onLoggedIn={(user) => setUser(user)} />
+                  <Col md={5} xs={12}>
+                    <LoginView
+                      onLoggedIn={(user, token) => {
+                        setUser(user);
+                        setToken(token);
+                      }}
+                    />
                   </Col>
                 )}
               </>
             }
           />
+
           <Route
             path="/movies/:movieId"
             element={
@@ -70,7 +102,7 @@ export const MainView = () => {
                 ) : movies.length === 0 ? (
                   <Col>The list is empty!</Col>
                 ) : (
-                  <Col md={8}>
+                  <Col md={8} xs={12}>
                     <MovieView movies={movies} />
                   </Col>
                 )}
@@ -94,6 +126,20 @@ export const MainView = () => {
                       </Col>
                     ))}
                   </>
+                )}
+              </>
+            }
+          />
+         <Route
+            path="/user"
+            element={
+              <>
+                {!user ? (
+                  <Navigate to="/login" replace />
+                ) : (
+                  <Col md={8}>
+                    <ProfileView movies={movies} />
+                  </Col>
                 )}
               </>
             }
