@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import { ProfileView } from "./profile-view";
+import { handleSubmit, handleUpdate } from "./profile-view";
 import {
   Button,
   Form,

@@ -1,7 +1,14 @@
 import{ useState } from "react";
 
-import Button from "react-bootstrap/Button";
-import Form from "react-bootstrap/Form";
+import {
+  Button,
+  Form,
+  Col,
+  Row,
+  Container,
+  Card,
+  CardGroup,
+} from "react-bootstrap/";
 
 export const SignupView = () => {
   const [username, setUsername] = useState("");
@@ -19,7 +26,7 @@ export const SignupView = () => {
       Birthday: birthday,
     };
 
-    fetch("https://movie-api-rani-1.herokuapp.com/users", {
+    fetch("https://movie-api-rani-1.herokuapp.com", {
       method: "POST",
       body: JSON.stringify(data),
       headers: {

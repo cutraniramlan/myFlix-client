@@ -17,9 +17,9 @@ export const MainView = () => {
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
-    if (!token) return;
+    if (!storedToken) return;
     fetch("https://movie-api-rani-1.herokuapp.com/", {
-      headers: { Authorization: `Bearer ${token}` },
+      headers: { Authorization: `Bearer ${storedToken}` },
     })
       .then((response) => response.json())
       .then((data) => {
@@ -44,7 +44,7 @@ export const MainView = () => {
         });
         setMovies(moviesFromApi);
       });
-  }, [token]);
+  }, [storedToken]);
 
 
   return (
