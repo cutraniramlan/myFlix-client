@@ -14,16 +14,29 @@ export const LoginView = ({ onLoggedIn }) => {
     
         const data = {
           Username: username,
-          Password: password,
+          Password: password
         };
     
         fetch("https://movie-api-rani-1.herokuapp.com/login", {
           method: "POST",
-          body: JSON.stringify(data),
           headers: {
-            "Content-Type": "application/json"
-          }
-        }).then((response) => {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        })
+        .then ((response) => response.json())
+        .then((data) => {
+          console.log('login success:', data);
+        })
+          .catch ((error) => {
+            console.error('login error:', error);
+
+          });
+
+        };
+
+        
+   /*      .then((response) => {
           if (response.ok) {
             alert("Signup successful");
             window.location.reload();
@@ -31,7 +44,7 @@ export const LoginView = ({ onLoggedIn }) => {
             alert("Signup failed");
           }
         });
-      };
+      }; */
 
 
   return (

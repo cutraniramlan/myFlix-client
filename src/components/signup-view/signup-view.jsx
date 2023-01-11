@@ -1,14 +1,6 @@
 import{ useState } from "react";
 
-import {
-  Button,
-  Form,
-  Col,
-  Row,
-  Container,
-  Card,
-  CardGroup,
-} from "react-bootstrap/";
+import { Button, Form, Col, Row, Container, Card, CardGroup } from "react-bootstrap/";
 
 export const SignupView = () => {
   const [username, setUsername] = useState("");
@@ -26,21 +18,23 @@ export const SignupView = () => {
       Birthday: birthday,
     };
 
-    fetch("https://movie-api-rani-1.herokuapp.com/users", {
-      method: "POST",
-      body: JSON.stringify(data),
-      headers: {
-        "Content-type": "application/json",
-      },
-    }).then((response) => {
-      if (response.ok) {
-        alert("Signup successful");
-        window.location.reload();
-      } else {
-        alert("Signup failed");
-      }
-    });
-  };
+    fetch("https://movie-api-rani-1.herokuapp.com", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        })
+        .then ((response) => response.json())
+        .then((data) => {
+          console.log('SignUp success:', data);
+        })
+          .catch ((error) => {
+            console.error('SignUp error:', error);
+
+          });
+
+        };
 
 
 return (
