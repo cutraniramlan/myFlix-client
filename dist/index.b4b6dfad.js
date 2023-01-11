@@ -42715,7 +42715,7 @@ const LoginView = ({ onLoggedIn  })=>{
             Username: username,
             Password: password
         };
-        fetch("https://movie-api-rani-1.herokuapp.com", {
+        fetch("https://movie-api-rani-1.herokuapp.com/login", {
             method: "POST",
             body: JSON.stringify(data),
             headers: {
@@ -42838,7 +42838,7 @@ const SignupView = ()=>{
             Email: email,
             Birthday: birthday
         };
-        fetch("https://movie-api-rani-1.herokuapp.com", {
+        fetch("https://movie-api-rani-1.herokuapp.com/users", {
             method: "POST",
             body: JSON.stringify(data),
             headers: {
