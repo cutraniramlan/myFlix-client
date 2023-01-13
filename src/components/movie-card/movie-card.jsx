@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import "./movie-card.scss";
 
 export const MovieCard = ({ movie, onMovieClick }) => {
+  console.log(movie);
   return (
     <Container>
       <Col>
@@ -17,9 +18,9 @@ export const MovieCard = ({ movie, onMovieClick }) => {
               <Card.Text>{movie.director.name}</Card.Text>
           </Card.Body>
           <Card.Footer>
-            <Button onClick={() => onMovieClick(movie)} variant="link">
-              Open
-            </Button>
+            <Link to={`/movies/${encodeURIComponent(movie.id)}`}>
+              <Button className="btn-login">Open</Button>
+            </Link>
           </Card.Footer>
         </Card>
       </Col>

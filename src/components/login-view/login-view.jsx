@@ -16,24 +16,50 @@ export const LoginView = ({ onLoggedIn }) => {
           Username: username,
           Password: password
         };
+        const url = `https://movie-api-rani-1.herokuapp.com/login?Username=${username}&Password=${password}`;
+
+    const requestOptions = {
+      method: "POST",
+    };
+
+    fetch(url, requestOptions)
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("login response: ", data);
+        if (data.user) {
+          console.log("user", data.user);
+          console.log("token", data.token);
+          localStorage.setItem("user", JSON.stringify(data.user));
+          localStorage.setItem("token", data.token);
+          onLoggedIn(data.user, data.token);
+        } else {
+          alert("No such user");
+        }
+      })
+      .catch((e) => {
+        alert("Something is ERRADO!");
+      });
+  };
     
-        fetch("https://movie-api-rani-1.herokuapp.com/login", {
+        /* fetch("https://movie-api-rani-1.herokuapp.com/login", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
           body: JSON.stringify(data),
         })
-        .then ((response) => response.json())
-        .then((data) => {
-          console.log('login success:', data);
-        })
-          .catch ((error) => {
-            console.error('login error:', error);
+        .then((response) => {
+          if (response.ok) {
+            onLoggedIn(username);
+            var responseJSON = JSON.parse(response.text);
+            responseJSON.
 
-          });
-
-        };
+            localStorage.setItem("token",)
+          } else {
+            alert("Login failed");
+          }
+        });
+      }; */
 
         
    /*      .then((response) => {

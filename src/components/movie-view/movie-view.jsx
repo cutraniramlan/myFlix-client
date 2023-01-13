@@ -5,16 +5,19 @@ import './movie-view.scss';
 
 export const MovieView = ({ movies}) => {
 
+  console.log(movies);
+
   const { movieId } = useParams();
 
   const movie = movies.find((b) => b.id === movieId);
   const storedUser = JSON.parse(localStorage.getItem("user"));
   const token = localStorage.getItem("token");
+  console.log(movie);
 
   const addFavorite = (movieId) => {
     if (!token) return;
 
-    const url = `https://movie-api-rani-1.herokuapp.com//users/${storedUser.Username}/movies/${movieId}`;
+    const url = `https://movie-api-rani-1.herokuapp.com/users/${storedUser.Username}/movies/${movieId}`;
 
     const requestOptions = {
       method: "POST",

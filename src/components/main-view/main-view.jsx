@@ -15,20 +15,29 @@ export const MainView = () => {
   const storedToken = localStorage.getItem("token");
   const [user, setUser] = useState(null);
   const [movies, setMovies] = useState([]);
+  const [token, setToken] = useState(null);
+
+  console.log("storedToken0");
+  console.log(storedToken);
+  console.log(movies.length);
 
   useEffect(() => {
+    console.log("storedToken");
+    console.log(storedToken);
     if (!storedToken) return;
-    fetch("https://movie-api-rani-1.herokuapp.com/", {
+    fetch("https://movie-api-rani-1.herokuapp.com/movies", {
       headers: { Authorization: `Bearer ${storedToken}` },
     })
       .then((response) => response.json())
       .then((data) => {
+        console.log("data");
+        console.log(data);
         const moviesFromApi = data.map((item) => {
           var moviesToReturn = {
             id: item._id,
             description: item.description,
             image: item.ImagePath,
-            title: item.Title,
+            title: item.title,
             genre: {
               name: item.genre.name,
               description: item.genre.description,
@@ -43,6 +52,7 @@ export const MainView = () => {
           return moviesToReturn;
         });
         setMovies(moviesFromApi);
+        console.log(moviesFromApi);
       });
   }, [storedToken]);
 
@@ -92,6 +102,23 @@ export const MainView = () => {
               </>
             }
           />
+
+         {/*  <Route
+            path="/movies"
+            element={
+              <>
+                {!user ? (
+                  <Navigate to="/login" replace />
+                ) : movies.length === 0 ? (
+                  <Col>The list is empty!</Col>
+                ) : (
+                  <Col md={8} xs={12}>
+                    <MovieView movies={movies} />
+                  </Col>
+                )}
+              </>
+            }
+          /> */}
 
           <Route
             path="/movies/:movieId"
