@@ -27159,7 +27159,7 @@ var _propTypesDefault = parcelHelpers.interopDefault(_propTypes);
 var _reactBootstrap = require("react-bootstrap");
 var _reactRouterDom = require("react-router-dom");
 var _movieCardScss = require("./movie-card.scss");
-const MovieCard = ({ movie , onMovieClick  })=>{
+const MovieCard = ({ movie , onMovieClick , moviesFromApi  })=>{
     console.log(movie);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Container), {
         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Col), {
@@ -27170,7 +27170,7 @@ const MovieCard = ({ movie , onMovieClick  })=>{
                 children: [
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card).Img, {
                         variant: "top",
-                        src: movie.ImagePath
+                        src: movie.image
                     }, void 0, false, {
                         fileName: "src/components/movie-card/movie-card.jsx",
                         lineNumber: 15,
@@ -42918,7 +42918,7 @@ const ProfileView = ({ movies  })=>{
                         bg: "dark",
                         text: "light",
                         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card).Body, {
-                            children: userData && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(FavoriteMovies, {
+                            children: userData && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _favoriteMoviesDefault.default), {
                                 usersFavMovies: movies.filter((user)=>userData.FavoriteMovies.includes(user.id))
                             }, void 0, false, {
                                 fileName: "src/components/profile-view/profile-view.jsx",

@@ -4,7 +4,7 @@ import { Button, Card, CardGroup, Row, Container } from "react-bootstrap";
 import { Container, Row, Col, Card, Form } from "react-bootstrap";
 import './profile-view.scss';
 import UserInfo from './user-info';
-import favoriteMovies from './favorite-movies';
+import FavoriteMovies from './favorite-movies';
 import UpdateUser from "./update-user";
 import "./profile-view.scss";
 

@@ -6,13 +6,13 @@ import { Link } from "react-router-dom";
 
 import "./movie-card.scss";
 
-export const MovieCard = ({ movie, onMovieClick }) => {
+export const MovieCard = ({ movie, onMovieClick, moviesFromApi }) => {
   console.log(movie);
   return (
     <Container>
       <Col>
         <Card className="h-100; card" bg="dark" text="light">
-          <Card.Img variant="top" src={movie.ImagePath} />
+          <Card.Img variant="top" src={movie.image} />
            <Card.Body>
              <Card.Title>{movie.title}</Card.Title>
               <Card.Text>{movie.director.name}</Card.Text>
