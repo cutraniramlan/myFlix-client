@@ -1,6 +1,7 @@
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
 import { Button, Card, CardGroup, Row, Container } from "react-bootstrap";
+import {ProfileView} from "../profile-view/profile-view";
 import './movie-view.scss';
 
 export const MovieView = ({ movies}) => {

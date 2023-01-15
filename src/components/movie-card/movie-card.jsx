@@ -12,14 +12,14 @@ export const MovieCard = ({ movie, onMovieClick }) => {
     <Container>
       <Col>
         <Card className="h-100; card" bg="dark" text="light">
-          <Card.Img variant="top" src={movie.image} />
+          <Card.Img variant="top" src={movie.ImagePath} />
            <Card.Body>
              <Card.Title>{movie.title}</Card.Title>
               <Card.Text>{movie.director.name}</Card.Text>
           </Card.Body>
           <Card.Footer>
             <Link to={`/movies/${encodeURIComponent(movie.id)}`}>
-              <Button className="btn-login">Open</Button>
+              <Button className="btn-login">See Detail</Button>
             </Link>
           </Card.Footer>
         </Card>
