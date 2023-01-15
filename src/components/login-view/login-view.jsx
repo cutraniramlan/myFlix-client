@@ -37,41 +37,9 @@ export const LoginView = ({ onLoggedIn }) => {
         }
       })
       .catch((e) => {
-        alert("Something is ERRADO!");
+        alert("Something is ERROR!");
       });
   };
-    
-        /* fetch("https://movie-api-rani-1.herokuapp.com/login", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(data),
-        })
-        .then((response) => {
-          if (response.ok) {
-            onLoggedIn(username);
-            var responseJSON = JSON.parse(response.text);
-            responseJSON.
-
-            localStorage.setItem("token",)
-          } else {
-            alert("Login failed");
-          }
-        });
-      }; */
-
-        
-   /*      .then((response) => {
-          if (response.ok) {
-            alert("Signup successful");
-            window.location.reload();
-          } else {
-            alert("Signup failed");
-          }
-        });
-      }; */
-
 
   return (
     <Form onSubmit={handleSubmit}>
