@@ -42813,7 +42813,7 @@ const ProfileView = ({ movies  })=>{
                 window.open(`/${storedUser.Username}`, "_self");
             }
         }).catch((e)=>{
-            alert("Something is alert!");
+            alert("Something is ERROR!");
         });
     };
     const handleSubmit = (e)=>{
@@ -42834,7 +42834,7 @@ const ProfileView = ({ movies  })=>{
             body: JSON.stringify(userCredentials)
         };
         fetch(url, requestOptions).then((response)=>response.json()).then(handleResponse).catch((e)=>{
-            alert("Something is ERRADO!");
+            alert("Something is ERROR!");
         });
     };
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Container), {
@@ -42962,7 +42962,7 @@ $RefreshReg$(_c, "ProfileView");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-router-dom":"fdOAw","react-bootstrap":"3AD9A","./profile-view.scss":"eyKYH","./user-info":"66eot","./favorite-movies":"dTTQH","./update-user":"2SBwg","@parcel/transformer-js/src/esmodule-helpers.js":"h6mg1","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"gq2eh"}],"eyKYH":[function() {},{}],"66eot":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-router-dom":"fdOAw","react-bootstrap":"3AD9A","@parcel/transformer-js/src/esmodule-helpers.js":"h6mg1","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"gq2eh","./profile-view.scss":"eyKYH","./user-info":"66eot","./favorite-movies":"dTTQH","./update-user":"2SBwg"}],"eyKYH":[function() {},{}],"66eot":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$1330 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
