@@ -35,7 +35,7 @@ export const SignupView = () => {
 
     });
 
-    
+};
 
 
       return (
@@ -121,5 +121,4 @@ export const SignupView = () => {
         </Row>
       </Container>
       );
-  };
 };
