@@ -28,6 +28,7 @@ export const SignupView = () => {
     .then ((response) => response.json())
     .then((data) => {
         alert('SignUp success:', data);
+        console.log(signup);
         
     })
     .catch ((error) => {
@@ -35,7 +36,7 @@ export const SignupView = () => {
 
     });
 
-};
+  };
 
 
       return (
