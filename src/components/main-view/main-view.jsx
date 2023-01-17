@@ -13,13 +13,15 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 export const MainView = () => {
   const storedUser = JSON.parse(localStorage.getItem("user"));
   const storedToken = localStorage.getItem("token");
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState(storedUser ? storedUser : null);
   const [movies, setMovies] = useState([]);
   const [token, setToken] = useState(null);
+  //setUser(storedUser);
 
   console.log("storedToken0");
   console.log(storedToken);
   console.log(movies.length);
+  console.log(user);
 
   useEffect(() => {
     console.log("storedToken");
@@ -95,6 +97,7 @@ export const MainView = () => {
                       onLoggedIn={(user, token) => {
                         setUser(user);
                         setToken(token);
+                        localStorage.setItem("user",JSON.stringify(user));
                       }}
                     />
                   </Col>

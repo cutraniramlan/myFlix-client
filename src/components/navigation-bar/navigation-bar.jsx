@@ -5,6 +5,7 @@ import Container from "react-bootstrap/Container";
 import "./navigation-bar.scss";
 
 export const NavigationBar = ({ user, onLoggedOut }) => {
+  console.log(user);
   return (
     <Navbar bg="light" variant="light" expand="lg">
       <Container>
@@ -27,7 +28,7 @@ export const NavigationBar = ({ user, onLoggedOut }) => {
             {user && (
               <>
                 <Nav.Link as={Link} to={`/user`}>
-                  {user.user}
+                  {user.Username}
                 </Nav.Link>
                 <Nav.Link onClick={onLoggedOut}>Logout</Nav.Link>
               </>

@@ -8,7 +8,7 @@ export const FavoriteMovies = ({ favoriteMovieList }) => {
 
   const removeFav = (movieId) => {
     fetch(
-      `https://movie-api-rani-1.herokuapp.com//users/${storedUser.Username}/movies/${movieId}`,
+      `https://movie-api-rani-1.herokuapp.com/users/${storedUser.Username}/movies/${movieId}`,
       {
         method: "DELETE",
         headers: { Authorization: `Bearer ${token}` },
@@ -18,7 +18,7 @@ export const FavoriteMovies = ({ favoriteMovieList }) => {
       .then((data) => {
         if (data) {
           localStorage.setItem("user", JSON.stringify(data));
-          window.open(`/${storedUser.Username}`, "_self");
+          window.open(`/user`, "_self");
         }
       })
       .catch((e) => {

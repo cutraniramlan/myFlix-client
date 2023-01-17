@@ -12,7 +12,7 @@ import "./profile-view.scss";
 export const ProfileView = ({ movies }) => {
     const storedUser = JSON.parse(localStorage.getItem("user"));
     const storedToken = localStorage.getItem("token");
-    const [userData, setUserData] = useState(null);
+    const [userData, setUserData] = useState(storedUser ? storedUser : null);
     const [token, setToken] = useState(storedToken ? storedToken : null);
     const [currentUsername, setusername] = useState(
       storedUser ? storedUser : null
@@ -20,6 +20,7 @@ export const ProfileView = ({ movies }) => {
     const [password, setPassword] = useState("");
     const [email, setEmail] = useState("");
     const [birthday, setBirthday] = useState("");
+
   
     function handleResponse(response) {
       return response.json().then((users) => {
@@ -51,6 +52,8 @@ export const ProfileView = ({ movies }) => {
     useEffect(() => {
       getUserData();
     }, []);
+
+    console.log(userData);
   
     const isRequestValid = (userCredentials) => {
       if (!userCredentials.Username) {
@@ -146,7 +149,7 @@ export const ProfileView = ({ movies }) => {
                 <UserInfo
                   username={userData && userData.Username}
                   email={userData && userData.Email}
-                  birthday={userData && userData.Birth_Date}
+                  birthday={userData && userData.Birthday}
                 />
               </Card.Body>
             </Card>
@@ -169,8 +172,8 @@ export const ProfileView = ({ movies }) => {
               <Card.Body>
                 {userData && (
                   <FavoriteMovies
-                    usersFavMovies={movies.filter((user) =>
-                      userData.FavoriteMovies.includes(user.id)
+                  favoriteMovieList={movies.filter(movie =>
+                      userData.FavoriteMovies.includes(movie.id)
                     )}
                   />
                 )}

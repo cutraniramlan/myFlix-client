@@ -30,6 +30,7 @@ export const MovieView = ({ movies}) => {
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
+        localStorage.setItem("user",JSON.stringify(data));
       })
       .catch((e) => {
         alert("Something is ERROR!");
