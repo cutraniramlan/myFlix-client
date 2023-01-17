@@ -22,7 +22,7 @@ export const FavoriteMovies = ({ favoriteMovieList }) => {
         }
       })
       .catch((e) => {
-        alert("Something is ERRADO!");
+        alert("Something is ERROR!");
       });
   };
 
