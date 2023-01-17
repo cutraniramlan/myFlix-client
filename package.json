@@ -28,7 +28,7 @@
     "redux": "^4.2.0"
   },
   "devDependencies": {
-    "@parcel/transformer-sass": "^2.8.2",
+    "@parcel/transformer-sass": "^2.7.0",
     "buffer": "^5.7.1"
   }
 }
