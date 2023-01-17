@@ -56,6 +56,16 @@ function UpdateUser({ handleSubmit, handleUpdate, user }) {
                       className="form-control"
                   
                     />
+                      </Form.Group>
+                  <Form.Group>
+                    <Form.Label>Birthday:</Form.Label>
+                    <Form.Control
+                      type="date"
+                      name="Birthday"
+                      defaultValue={user && user.Birthday}
+                      className="form-control"
+                  
+                    />
                   </Form.Group>
                   <Card.Footer>
                     <Button

@@ -13,6 +13,10 @@
   margin-top: 30px;
 }
 
+.card-background {
+  background-color: bisque;
+}
+
 .my-flix {
   color: #4682b4;
 }
@@ -12032,6 +12036,8 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
+
+
 
 
 

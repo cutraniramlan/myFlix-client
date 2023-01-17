@@ -28,7 +28,9 @@ export const SignupView = () => {
     .then ((response) => response.json())
     .then((data) => {
         alert('SignUp success:', data);
-        console.log(signup);
+        console.log(data);
+      /*   localStorage.setItem("user",JSON.stringify(data)); */
+        window.open(`/login`, "_self");
         
     })
     .catch ((error) => {

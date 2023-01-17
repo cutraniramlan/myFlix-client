@@ -27167,7 +27167,7 @@ const MovieCard = ({ movie , onMovieClick , moviesFromApi  })=>{
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Container), {
         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Col), {
             children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card), {
-                className: "h-100; card",
+                className: "dh-100; card",
                 bg: "dark",
                 text: "light",
                 children: [
@@ -43063,21 +43063,59 @@ var prevRefreshSig = window.$RefreshSig$;
 $parcel$ReactRefreshHelpers$1330.prelude(module);
 
 try {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+/* import React from 'react'
+
+function UserInfo ( {username, email, birthday}) {
+    return (
+        <>
+        <h4>Your Info</h4>
+        <p>Name: {username}</p>
+        <p>e-mail: {email}</p>
+      
+        </>
+    );
+    };
+
+    
+export default UserInfo; */ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "UserInfo", ()=>UserInfo);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
-var _reactDefault = parcelHelpers.interopDefault(_react);
-function UserInfo({ username , email , birthday  }) {
+var _reactBootstrap = require("react-bootstrap");
+var _userInfoScss = require("./user-info.scss");
+const UserInfo = ({ username , email , birthday  })=>{
+    const token = localStorage.getItem("token");
+    const handleDelete = (e)=>{
+        if (username && token) {
+            let confirmDelete = confirm("Are you sure you want to delete your account permanently?");
+            if (!confirmDelete) return;
+            fetch(`https://movie-api-rani-1.herokuapp.com/users/${username}`, {
+                method: "DELETE",
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            })// .then((response) => response.json())
+            .then((response)=>{
+                if (response.ok) {
+                    alert("Your account was permanently deleted.");
+                    localStorage.clear();
+                    window.open("/", "_self");
+                } else alert(response.statusText);
+            }).catch((e)=>{
+                alert("Something is ERROR!");
+            });
+        }
+    };
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h4", {
-                children: "Your Info"
+                children: " Your Info"
             }, void 0, false, {
                 fileName: "src/components/profile-view/user-info.jsx",
-                lineNumber: 6,
-                columnNumber: 9
-            }, this),
+                lineNumber: 52,
+                columnNumber: 7
+            }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
                 children: [
                     "Name: ",
@@ -43085,22 +43123,31 @@ function UserInfo({ username , email , birthday  }) {
                 ]
             }, void 0, true, {
                 fileName: "src/components/profile-view/user-info.jsx",
-                lineNumber: 7,
-                columnNumber: 9
-            }, this),
+                lineNumber: 53,
+                columnNumber: 7
+            }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
                 children: [
-                    "e-mail: ",
+                    "Email: ",
                     email
                 ]
             }, void 0, true, {
                 fileName: "src/components/profile-view/user-info.jsx",
-                lineNumber: 8,
-                columnNumber: 9
-            }, this)
+                lineNumber: 54,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Button), {
+                variant: "outline-danger",
+                onClick: handleDelete,
+                children: "Delete Account"
+            }, void 0, false, {
+                fileName: "src/components/profile-view/user-info.jsx",
+                lineNumber: 55,
+                columnNumber: 7
+            }, undefined)
         ]
     }, void 0, true);
-}
+};
 _c = UserInfo;
 exports.default = UserInfo;
 var _c;
@@ -43111,7 +43158,7 @@ $RefreshReg$(_c, "UserInfo");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"7HLb8","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"eSZL5"}],"dTTQH":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"7HLb8","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"eSZL5","react-bootstrap":"3AD9A","./user-info.scss":"LNCk2"}],"LNCk2":[function() {},{}],"dTTQH":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$8767 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -43392,6 +43439,31 @@ function UpdateUser({ handleSubmit , handleUpdate , user  }) {
                                         lineNumber: 49,
                                         columnNumber: 19
                                     }, this),
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Group, {
+                                        children: [
+                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Label, {
+                                                children: "Birthday:"
+                                            }, void 0, false, {
+                                                fileName: "src/components/profile-view/update-user.jsx",
+                                                lineNumber: 61,
+                                                columnNumber: 21
+                                            }, this),
+                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Control, {
+                                                type: "date",
+                                                name: "Birthday",
+                                                defaultValue: user && user.Birthday,
+                                                className: "form-control"
+                                            }, void 0, false, {
+                                                fileName: "src/components/profile-view/update-user.jsx",
+                                                lineNumber: 62,
+                                                columnNumber: 21
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "src/components/profile-view/update-user.jsx",
+                                        lineNumber: 60,
+                                        columnNumber: 19
+                                    }, this),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _.Card).Footer, {
                                         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _.Button), {
                                             variant: "primary",
@@ -43400,12 +43472,12 @@ function UpdateUser({ handleSubmit , handleUpdate , user  }) {
                                             children: "Update"
                                         }, void 0, false, {
                                             fileName: "src/components/profile-view/update-user.jsx",
-                                            lineNumber: 61,
+                                            lineNumber: 71,
                                             columnNumber: 21
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "src/components/profile-view/update-user.jsx",
-                                        lineNumber: 60,
+                                        lineNumber: 70,
                                         columnNumber: 19
                                     }, this)
                                 ]
@@ -43453,7 +43525,7 @@ _c = UpdateUser;
     children: "Submit"
 }, void 0, false, {
     fileName: "src/components/profile-view/update-user.jsx",
-    lineNumber: 78,
+    lineNumber: 88,
     columnNumber: 9
 }, undefined);
 exports.default = UpdateUser;
@@ -43627,7 +43699,8 @@ const SignupView = ()=>{
             body: JSON.stringify(data)
         }).then((response)=>response.json()).then((data)=>{
             alert("SignUp success:", data);
-            console.log(signup);
+            console.log(data);
+            /*   localStorage.setItem("user",JSON.stringify(data)); */ window.open(`/login`, "_self");
         }).catch((error)=>{
             alert("SignUp error:", error);
         });
@@ -43646,7 +43719,7 @@ const SignupView = ()=>{
                                     children: " Welcome!"
                                 }, void 0, false, {
                                     fileName: "src/components/signup-view/signup-view.jsx",
-                                    lineNumber: 49,
+                                    lineNumber: 51,
                                     columnNumber: 19
                                 }, undefined),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _.Form), {
@@ -43661,7 +43734,7 @@ const SignupView = ()=>{
                                                     children: "Username:"
                                                 }, void 0, false, {
                                                     fileName: "src/components/signup-view/signup-view.jsx",
-                                                    lineNumber: 55,
+                                                    lineNumber: 57,
                                                     columnNumber: 23
                                                 }, undefined),
                                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _.Form).Control, {
@@ -43674,13 +43747,13 @@ const SignupView = ()=>{
                                                     placeholder: "Enter your Username"
                                                 }, void 0, false, {
                                                     fileName: "src/components/signup-view/signup-view.jsx",
-                                                    lineNumber: 56,
+                                                    lineNumber: 58,
                                                     columnNumber: 23
                                                 }, undefined)
                                             ]
                                         }, void 0, true, {
                                             fileName: "src/components/signup-view/signup-view.jsx",
-                                            lineNumber: 51,
+                                            lineNumber: 53,
                                             columnNumber: 21
                                         }, undefined),
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _.Form).Group, {
@@ -43692,7 +43765,7 @@ const SignupView = ()=>{
                                                     children: "Password:"
                                                 }, void 0, false, {
                                                     fileName: "src/components/signup-view/signup-view.jsx",
-                                                    lineNumber: 71,
+                                                    lineNumber: 73,
                                                     columnNumber: 23
                                                 }, undefined),
                                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _.Form).Control, {
@@ -43704,13 +43777,13 @@ const SignupView = ()=>{
                                                     placeholder: "Type your Password"
                                                 }, void 0, false, {
                                                     fileName: "src/components/signup-view/signup-view.jsx",
-                                                    lineNumber: 72,
+                                                    lineNumber: 74,
                                                     columnNumber: 23
                                                 }, undefined)
                                             ]
                                         }, void 0, true, {
                                             fileName: "src/components/signup-view/signup-view.jsx",
-                                            lineNumber: 67,
+                                            lineNumber: 69,
                                             columnNumber: 21
                                         }, undefined),
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _.Form).Group, {
@@ -43722,7 +43795,7 @@ const SignupView = ()=>{
                                                     children: "Email:"
                                                 }, void 0, false, {
                                                     fileName: "src/components/signup-view/signup-view.jsx",
-                                                    lineNumber: 85,
+                                                    lineNumber: 87,
                                                     columnNumber: 23
                                                 }, undefined),
                                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _.Form).Control, {
@@ -43734,13 +43807,13 @@ const SignupView = ()=>{
                                                     placeholder: "Type your Email"
                                                 }, void 0, false, {
                                                     fileName: "src/components/signup-view/signup-view.jsx",
-                                                    lineNumber: 86,
+                                                    lineNumber: 88,
                                                     columnNumber: 23
                                                 }, undefined)
                                             ]
                                         }, void 0, true, {
                                             fileName: "src/components/signup-view/signup-view.jsx",
-                                            lineNumber: 81,
+                                            lineNumber: 83,
                                             columnNumber: 21
                                         }, undefined),
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _.Form).Group, {
@@ -43752,7 +43825,7 @@ const SignupView = ()=>{
                                                     children: "Birthday:"
                                                 }, void 0, false, {
                                                     fileName: "src/components/signup-view/signup-view.jsx",
-                                                    lineNumber: 99,
+                                                    lineNumber: 101,
                                                     columnNumber: 23
                                                 }, undefined),
                                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _.Form).Control, {
@@ -43763,13 +43836,13 @@ const SignupView = ()=>{
                                                     required: true
                                                 }, void 0, false, {
                                                     fileName: "src/components/signup-view/signup-view.jsx",
-                                                    lineNumber: 100,
+                                                    lineNumber: 102,
                                                     columnNumber: 23
                                                 }, undefined)
                                             ]
                                         }, void 0, true, {
                                             fileName: "src/components/signup-view/signup-view.jsx",
-                                            lineNumber: 95,
+                                            lineNumber: 97,
                                             columnNumber: 21
                                         }, undefined),
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _.Card).Footer, {
@@ -43780,49 +43853,49 @@ const SignupView = ()=>{
                                                 children: "Register"
                                             }, void 0, false, {
                                                 fileName: "src/components/signup-view/signup-view.jsx",
-                                                lineNumber: 109,
+                                                lineNumber: 111,
                                                 columnNumber: 23
                                             }, undefined)
                                         }, void 0, false, {
                                             fileName: "src/components/signup-view/signup-view.jsx",
-                                            lineNumber: 108,
+                                            lineNumber: 110,
                                             columnNumber: 21
                                         }, undefined)
                                     ]
                                 }, void 0, true, {
                                     fileName: "src/components/signup-view/signup-view.jsx",
-                                    lineNumber: 50,
+                                    lineNumber: 52,
                                     columnNumber: 19
                                 }, undefined)
                             ]
                         }, void 0, true, {
                             fileName: "src/components/signup-view/signup-view.jsx",
-                            lineNumber: 48,
+                            lineNumber: 50,
                             columnNumber: 17
                         }, undefined)
                     }, void 0, false, {
                         fileName: "src/components/signup-view/signup-view.jsx",
-                        lineNumber: 47,
+                        lineNumber: 49,
                         columnNumber: 15
                     }, undefined)
                 }, void 0, false, {
                     fileName: "src/components/signup-view/signup-view.jsx",
-                    lineNumber: 46,
+                    lineNumber: 48,
                     columnNumber: 13
                 }, undefined)
             }, void 0, false, {
                 fileName: "src/components/signup-view/signup-view.jsx",
-                lineNumber: 45,
+                lineNumber: 47,
                 columnNumber: 11
             }, undefined)
         }, void 0, false, {
             fileName: "src/components/signup-view/signup-view.jsx",
-            lineNumber: 44,
+            lineNumber: 46,
             columnNumber: 9
         }, undefined)
     }, void 0, false, {
         fileName: "src/components/signup-view/signup-view.jsx",
-        lineNumber: 43,
+        lineNumber: 45,
         columnNumber: 9
     }, undefined);
 };
