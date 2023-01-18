@@ -1,8 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import { Button, Card, CardGroup, Row, Container } from "react-bootstrap";
-import { Container, Row, Col, Card, Form } from "react-bootstrap";
-import './profile-view.scss';
+import { Container, Row, Col, Card } from "react-bootstrap";
 import UserInfo from './user-info';
 import FavoriteMovies from './favorite-movies';
 import UpdateUser from "./update-user";
