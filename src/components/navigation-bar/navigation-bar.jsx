@@ -7,10 +7,10 @@ import "./navigation-bar.scss";
 export const NavigationBar = ({ user, onLoggedOut }) => {
   console.log(user);
   return (
-    <Navbar bg="light" variant="light" expand="lg">
+    <Navbar className="navbar-brand" bg="white">
       <Container>
         <Navbar.Brand as={Link} to="/">
-          MyFlix App
+          Disney Flix
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">

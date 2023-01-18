@@ -11,7 +11,7 @@ export const MovieCard = ({ movie, onMovieClick, moviesFromApi }) => {
   return (
     <Container>
       <Col>
-        <Card className="dh-100; card" bg="dark" text="light">
+        <Card className="dh-100; card" bg="info" text="dark">
           <Card.Img variant="top" src={movie.image} />
            <Card.Body>
              <Card.Title>{movie.title}</Card.Title>
@@ -19,7 +19,7 @@ export const MovieCard = ({ movie, onMovieClick, moviesFromApi }) => {
           </Card.Body>
           <Card.Footer>
             <Link to={`/movies/${encodeURIComponent(movie.id)}`}>
-              <Button className="btn-login">See Detail</Button>
+              <Button className="btn-login" bg="warning">See Detail</Button>
             </Link>
           </Card.Footer>
         </Card>

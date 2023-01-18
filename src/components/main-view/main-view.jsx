@@ -61,7 +61,7 @@ export const MainView = () => {
 
   return (
     <BrowserRouter>
-     <NavigationBar
+     <NavigationBar className="justify-content-md-center" class="navbar-brand" href="#" src="https://placeholder.pics/svg/150x50/888888/EEE/Logo" alt="..." height="36"
         user={user}
         onLoggedOut={() => {
           setUser(null);
@@ -69,7 +69,8 @@ export const MainView = () => {
           localStorage.clear();
         }}
       />
-      <Row className="justify-content-md-center">
+      <Row >
+    
         <Routes>
           <Route
             path="/signup"

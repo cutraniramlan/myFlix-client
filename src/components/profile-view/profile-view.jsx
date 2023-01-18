@@ -141,7 +141,7 @@ export const ProfileView = ({ movies }) => {
       <Container className="container-mt">
         <Row>
           <Col xs={4} sm={4}>
-            <Card bg="dark" text="light">
+            <Card bg="info" text="dark">
               <Card.Body>
                 <UserInfo
                   username={userData && userData.Username}
@@ -152,7 +152,7 @@ export const ProfileView = ({ movies }) => {
             </Card>
           </Col>
           <Col xs={8} sm={8}>
-            <Card bg="dark" text="light">
+            <Card bg="info" text="dark">
               <Card.Body>
                 <UpdateUser
                   handleSubmit={handleSubmit}
@@ -165,7 +165,7 @@ export const ProfileView = ({ movies }) => {
         </Row>
         <Row>
           <Col xs={12} sm={12}>
-            <Card bg="dark" text="light">
+            <Card bg="info" text="light">
               <Card.Body>
                 {userData && (
                   <FavoriteMovies

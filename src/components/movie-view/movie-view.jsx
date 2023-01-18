@@ -40,7 +40,7 @@ export const MovieView = ({ movies}) => {
   return (
     <Container className="cardset">
       <Row>
-        <Card bg="dark" text="light">
+        <Card className="dh-100; card" bg="info" text="dark">
           <Card.Header>
             <div>
               <span className="title text-center "> {movie.title} </span>
