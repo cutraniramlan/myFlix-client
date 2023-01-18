@@ -1,6 +1,8 @@
 import { createRoot } from "react-dom/client";
+
 import { MainView } from "./components/main-view/main-view";
 import "bootstrap/dist/css/bootstrap.min.css";
+import Container from "react-bootstrap/Container";
 
 /* $primary: SeaGreen;
 $body-bg: Honeydew;
@@ -8,7 +10,11 @@ $body-bg: Honeydew;
 @import '~bootstrap/scss/bootstrap.scss'; */
 
 const App = () => {
-  return <MainView />;
+  return (
+    <Container>
+      <MainView />
+    </Container>
+  );
 };
 
 const container = document.querySelector("#root");
