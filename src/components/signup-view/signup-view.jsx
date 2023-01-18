@@ -1,7 +1,6 @@
 import{ useState } from "react";
 
-import Button from "react-bootstrap/Button";
-import Form from "react-bootstrap/Form";
+import { Button, Form, Col, Row, Container, Card, CardGroup } from "react-bootstrap/";
 
 export const SignupView = () => {
   const [username, setUsername] = useState("");
@@ -9,124 +8,120 @@ export const SignupView = () => {
   const [email, setEmail] = useState("");
   const [birthday, setBirthday] = useState("");
 
-  const handleSubmit = (event) => {};
+  const handleSubmit = (event) => {
+    event.preventDefault();
 
-  /* return (
-    <form onSubmit={handleSubmit}>
-      <label  >
-        Username:
-        <input
-          type="text"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-          required
-          minLength="3"
-        />
-      </label>
-      <label>
-        Password:
-        <input
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-      </label>
-      <label>
-        Email:
-        <input
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
-      </label>
-      <label>
-        Birthday:
-        <input
-          type="date"
-          value={birthday}
-          onChange={(e) => setBirthday(e.target.value)}
-          required
-        />
-      </label>
-      <button type="submit">Submit</button>
-    </form>
-  );
-}; */
-return (
-  <Form onSubmit={handleSubmit}>
-    <Form.Group controlId="formUsername">
-      <Form.Label>Username:</Form.Label>
-      <Form.Control
-        type="text"
-        value={username}
-        onChange={(e) => setUsername(e.target.value)}
-        required
-        minLength="3" 
-      />
-    </Form.Group>
+    const data = {
+      Username: username,
+      Password: password,
+      Email: email,
+      Birthday: birthday,
+    };
 
-    <Form.Group controlId="formPassword">
-      <Form.Label>Password:</Form.Label>
-      <Form.Control
-        type="password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-        required
-      />
-    </Form.Group>
+    fetch("https://movie-api-rani-1.herokuapp.com/users", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+    })
+    .then ((response) => response.json())
+    .then((data) => {
+        alert('SignUp success:', data);
+        console.log(data);
+      /*   localStorage.setItem("user",JSON.stringify(data)); */
+        window.open(`/login`, "_self");
+        
+    })
+    .catch ((error) => {
+      alert('SignUp error:', error);
 
-    <Form.Group controlId="formEmail">
-      <Form.Label>Email:</Form.Label>
-      <Form.Control
-        type="email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        required
-        minLength="3" 
-      />
-    </Form.Group>
+    });
 
-    <Form.Group controlId="formBirthday">
-      <Form.Label>Birthday:</Form.Label>
-      <Form.Control
-        type="date"
-        value={birthday}
-        onChange={(e) => setBirthday(e.target.value)}
-        required
-      />
-    </Form.Group>
-
-    <Button variant="primary" type="submit">
-      Submit
-    </Button>
-  </Form>
-);
-};
-
-const handleSubmit = (event) => {
-  event.preventDefault();
-
-  const data = {
-    Username: username,
-    Password: password,
-    Email: email,
-    Birthday: birthday
   };
 
-  fetch("SIGNUP_URL", {
-    method: "POST",
-    body: JSON.stringify(data),
-    headers: {
-      "Content-Type": "application/json"
-    }
-  }).then((response) => {
-    if (response.ok) {
-      alert("Signup successful");
-      window.location.reload();
-    } else {
-      alert("Signup failed");
-    }
-  });
+
+      return (
+        <Container className="formset">
+        <Row>
+          <Col>
+            <CardGroup>
+              <Card bg="dark" text="light">
+                <Card.Body>
+                  <Card.Title> Welcome!</Card.Title>
+                  <Form onSubmit={handleSubmit}>
+                    <Form.Group
+                      className="description"
+                      controlId="signUpFormUsername"
+                    >
+                      <Form.Label className="label">Username:</Form.Label>
+                      <Form.Control
+                        className="formctrl"
+                        type="text"
+                        value={username}
+                        onChange={(e) => setUsername(e.target.value)}
+                        required
+                        minLength="3"
+                        placeholder="Enter your Username"
+                      />
+                    </Form.Group>
+
+                    <Form.Group
+                      className="description"
+                      controlId="signUpFormPassword"
+                    >
+                      <Form.Label className="label">Password:</Form.Label>
+                      <Form.Control
+                        className="formctrl"
+                        type="password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        required
+                        placeholder="Type your Password"
+                      />
+                    </Form.Group>
+                    <Form.Group
+                      className="description"
+                      controlId="signUpFormEmail"
+                    >
+                      <Form.Label className="label">Email:</Form.Label>
+                      <Form.Control
+                        className="formctrl"
+                        type="email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        required
+                        placeholder="Type your Email"
+                      />
+                    </Form.Group>
+                    <Form.Group
+                      className="description"
+                      controlId="signUpFormBirthday"
+                    >
+                      <Form.Label className="label">Birthday:</Form.Label>
+                      <Form.Control
+                        className="formctrl"
+                        type="date"
+                        value={birthday}
+                        onChange={(e) => setBirthday(e.target.value)}
+                        required
+                      />
+                    </Form.Group>
+                    <Card.Footer>
+                      <Button
+                        variant="primary"
+                        type="submit"
+                        className="btn-login"
+                      >
+                        Register
+                      </Button>
+                    </Card.Footer>
+                  </Form>
+                </Card.Body>
+              </Card>
+            </CardGroup>
+          </Col>
+        </Row>
+      </Container>
+      );
 };
