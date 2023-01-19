@@ -1,12 +1,11 @@
 import React from "react";
 // Here you import the PropTypes library
 import PropTypes from "prop-types";
-import { Button, Card, Container, Col, Row } from "react-bootstrap";
+import { Button, Card, Container, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
-import "./movie-card.scss";
 
-export const MovieCard = ({ movie, onMovieClick, moviesFromApi }) => {
+export const MovieCard = ({ movie/* , onMovieClick, moviesFromApi  */}) => {
   console.log(movie);
   return (
     <Container>
@@ -19,7 +18,7 @@ export const MovieCard = ({ movie, onMovieClick, moviesFromApi }) => {
           </Card.Body>
           <Card.Footer>
             <Link to={`/movies/${encodeURIComponent(movie.id)}`}>
-              <Button className="btn-login" bg="warning">See Detail</Button>
+              <Button className="btn-login" bg="warning">Open</Button>
             </Link>
           </Card.Footer>
         </Card>

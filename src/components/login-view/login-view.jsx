@@ -1,11 +1,14 @@
 import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
+import { useDispatch } from "react-redux";
+import { setUser } from "../../redux/reducers/user";
 
 
-export const LoginView = ({ onLoggedIn }) => {
+export const LoginView = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const dispatch = useDispatch();
 
 
 
@@ -16,30 +19,38 @@ export const LoginView = ({ onLoggedIn }) => {
           Username: username,
           Password: password
         };
+
+  
         const url = `https://movie-api-rani-1.herokuapp.com/login?Username=${username}&Password=${password}`;
 
-    const requestOptions = {
-      method: "POST",
-    };
+        const requestOptions = {
+          method: "POST",
+          body: JSON.stringify(data)
 
-    fetch(url, requestOptions)
-      .then((response) => response.json())
-      .then((data) => {
-        console.log("login response: ", data);
-        if (data.user) {
-          console.log("user", data.user);
-          console.log("token", data.token);
-          localStorage.setItem("user", JSON.stringify(data.user));
-          localStorage.setItem("token", data.token);
-          onLoggedIn(data.user, data.token);
-        } else {
-          alert("No such user");
-        }
-      })
-      .catch((e) => {
-        alert("Something is ERROR!");
-      });
-  };
+        };
+
+        fetch(url, requestOptions)
+          .then((response) => response.json())
+          .then((data) => {
+            console.log("login response: ", data);
+            console.log(data.user);
+            if (data.user) {
+              console.log("user", data.user);
+              console.log("token", data.token);
+              console.log(username);
+              // localStorage.setItem("user", JSON.stringify(data.user));
+              // localStorage.setItem("token", data.token);
+              // onLoggedIn(data.user, data.token);
+              dispatch(setUser(username));
+            } else {
+              alert("No such user");
+            }
+          })
+          .catch((e) => {
+            alert("Something is ERROR!");
+            console.log(e);
+          });
+      };
 
   return (
     <Form onSubmit={handleSubmit}>

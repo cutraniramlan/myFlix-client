@@ -1,13 +1,15 @@
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
+import "./movie-view.scss";
 import { Button, Card, CardGroup, Row, Container } from "react-bootstrap";
 
 
-export const MovieView = ({ movies}) => {
 
-  console.log(movies);
-
+export const MovieView = () => {
   const { movieId } = useParams();
+  const movies = useSelector((state) => state.movies);
+
+  console.log(movies); 
 
   const movie = movies.find((b) => b.id === movieId);
   const storedUser = JSON.parse(localStorage.getItem("user"));
