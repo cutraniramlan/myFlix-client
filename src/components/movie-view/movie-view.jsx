@@ -7,7 +7,7 @@ import './movie-view.scss';
 export const MovieView = ({ movies}) => {
 
   console.log(movies);
-
+ 
   const { movieId } = useParams();
 
   const movie = movies.find((b) => b.id === movieId);
@@ -40,7 +40,7 @@ export const MovieView = ({ movies}) => {
   return (
     <Container className="cardset">
       <Row>
-        <Card className="dh-100; card" bg="info" text="dark">
+        <Card className="dh-100; card" bg="dark" text="light">
           <Card.Header>
             <div>
               <span className="title text-center "> {movie.title} </span>

@@ -11,7 +11,7 @@ export const MovieCard = ({ movie, onMovieClick, moviesFromApi }) => {
   return (
     <Container>
       <Col>
-        <Card className="dh-100; card" bg="info" text="dark">
+        <Card className="dh-100; card" bg="dark" text="light">
           <Card.Img variant="top" src={movie.image} />
            <Card.Body>
              <Card.Title>{movie.title}</Card.Title>
