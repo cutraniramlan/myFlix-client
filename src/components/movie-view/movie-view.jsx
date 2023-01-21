@@ -59,7 +59,6 @@ export const MovieView = ({ movies}) => {
               <div>
                 <Card.Img
                   className="cardimage"
-                  crossOrigin="anonymous"
                   src={movie.image}
                 />
               </div>
