@@ -2945,7 +2945,7 @@ $RefreshReg$(_c, "App");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react-dom/client":"lOjBx","./components/main-view/main-view":"4gflv","bootstrap/dist/css/bootstrap.min.css":"i5LP7","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"eSZL5","react-bootstrap/Container":"hEdsw","./redux/store":"bDp2K","react-redux":"bdVon","@parcel/transformer-js/src/esmodule-helpers.js":"7HLb8","./index.scss":"lJZlQ"}],"iTorj":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react-dom/client":"lOjBx","./components/main-view/main-view":"4gflv","bootstrap/dist/css/bootstrap.min.css":"i5LP7","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"eSZL5","react-bootstrap/Container":"hEdsw","@parcel/transformer-js/src/esmodule-helpers.js":"7HLb8","./index.scss":"lJZlQ","./redux/store":"bDp2K","react-redux":"bdVon"}],"iTorj":[function(require,module,exports) {
 "use strict";
 module.exports = require("./cjs/react-jsx-dev-runtime.development.js");
 
@@ -27136,7 +27136,7 @@ $RefreshReg$(_c, "MainView");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../movie-view/movie-view":"ggaUx","../login-view/login-view":"9YtA0","../signup-view/signup-view":"4OGiN","@parcel/transformer-js/src/esmodule-helpers.js":"7HLb8","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"eSZL5","../navigation-bar/navigation-bar":"bsPVM","react-router-dom":"fdOAw","react-redux":"bdVon","../../redux/reducers/movies":"l0qwl","../movies-list/movies-list":"bPxKK","react-bootstrap/Col":"2L2I6","react-bootstrap/Row":"cMC39"}],"ggaUx":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../movie-view/movie-view":"ggaUx","../login-view/login-view":"9YtA0","../signup-view/signup-view":"4OGiN","@parcel/transformer-js/src/esmodule-helpers.js":"7HLb8","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"eSZL5","../navigation-bar/navigation-bar":"bsPVM","react-router-dom":"fdOAw","../movies-list/movies-list":"bPxKK","react-bootstrap/Col":"2L2I6","react-bootstrap/Row":"cMC39","react-redux":"bdVon","../../redux/reducers/movies":"l0qwl"}],"ggaUx":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$e9f6 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -48462,31 +48462,7 @@ $RefreshReg$(_c, "NavigationBar");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react-bootstrap":"3AD9A","react-router-dom":"fdOAw","@parcel/transformer-js/src/esmodule-helpers.js":"7HLb8","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"eSZL5","react-redux":"bdVon","../../redux/reducers/user":"e6tdF"}],"l0qwl":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "setMovies", ()=>setMovies);
-parcelHelpers.export(exports, "setFilter", ()=>setFilter);
-var _toolkit = require("@reduxjs/toolkit");
-const moviesSlice = (0, _toolkit.createSlice)({
-    name: "movies",
-    initialState: {
-        list: [],
-        filter: ""
-    },
-    reducers: {
-        setMovies: (state, action)=>{
-            state.movies = action.payload;
-        },
-        setFilter: (state, action)=>{
-            state.filter = action.payload;
-        }
-    }
-});
-const { setMovies , setFilter  } = moviesSlice.actions;
-exports.default = moviesSlice.reducer;
-
-},{"@reduxjs/toolkit":"lL1Ef","@parcel/transformer-js/src/esmodule-helpers.js":"7HLb8"}],"bPxKK":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react-bootstrap":"3AD9A","react-router-dom":"fdOAw","@parcel/transformer-js/src/esmodule-helpers.js":"7HLb8","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"eSZL5","react-redux":"bdVon","../../redux/reducers/user":"e6tdF"}],"bPxKK":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$89c8 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -48736,7 +48712,31 @@ $RefreshReg$(_c, "MoviesFilter");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-redux":"bdVon","react-bootstrap/Form":"iBZ80","../../redux/reducers/movies":"l0qwl","@parcel/transformer-js/src/esmodule-helpers.js":"7HLb8","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"eSZL5"}],"i5LP7":[function() {},{}],"bDp2K":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-redux":"bdVon","react-bootstrap/Form":"iBZ80","../../redux/reducers/movies":"l0qwl","@parcel/transformer-js/src/esmodule-helpers.js":"7HLb8","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"eSZL5"}],"l0qwl":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "setMovies", ()=>setMovies);
+parcelHelpers.export(exports, "setFilter", ()=>setFilter);
+var _toolkit = require("@reduxjs/toolkit");
+const moviesSlice = (0, _toolkit.createSlice)({
+    name: "movies",
+    initialState: {
+        list: [],
+        filter: ""
+    },
+    reducers: {
+        setMovies: (state, action)=>{
+            state.movies = action.payload;
+        },
+        setFilter: (state, action)=>{
+            state.filter = action.payload;
+        }
+    }
+});
+const { setMovies , setFilter  } = moviesSlice.actions;
+exports.default = moviesSlice.reducer;
+
+},{"@reduxjs/toolkit":"lL1Ef","@parcel/transformer-js/src/esmodule-helpers.js":"7HLb8"}],"i5LP7":[function() {},{}],"lJZlQ":[function() {},{}],"bDp2K":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "store", ()=>store);
@@ -48752,6 +48752,6 @@ const store = (0, _toolkit.configureStore)({
     }
 });
 
-},{"@reduxjs/toolkit":"lL1Ef","./reducers/movies":"l0qwl","./reducers/user":"e6tdF","@parcel/transformer-js/src/esmodule-helpers.js":"7HLb8"}],"lJZlQ":[function() {},{}]},["5Uv6S","bI9M3","d8Dch"], "d8Dch", "parcelRequireaec4")
+},{"@reduxjs/toolkit":"lL1Ef","./reducers/movies":"l0qwl","./reducers/user":"e6tdF","@parcel/transformer-js/src/esmodule-helpers.js":"7HLb8"}]},["5Uv6S","bI9M3","d8Dch"], "d8Dch", "parcelRequireaec4")
 
 //# sourceMappingURL=index.b4b6dfad.js.map
