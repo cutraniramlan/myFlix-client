@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { Container, Row, Col, Card } from "react-bootstrap";
-import UserInfo from './user-info';
+//import UserInfo from './user-info';
 import FavoriteMovies from './favorite-movies';
 import UpdateUser from "./update-user";
-import "./profile-view.scss";
+//import "./profile-view.scss";
   
 
 export const ProfileView = ({ movies }) => {
