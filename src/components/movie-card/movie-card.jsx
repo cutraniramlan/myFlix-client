@@ -1,42 +1,82 @@
-import React from "react";
-// Here you import the PropTypes library
-import PropTypes from "prop-types";
-import { Button, Card, Container, Col } from "react-bootstrap";
+// import React from "react";
+// // Here you import the PropTypes library
+// import PropTypes from "prop-types";
+// import { Button, Card, Container, Col } from "react-bootstrap";
+// import { Link } from "react-router-dom";
+
+
+// export const MovieCard = ({ movie/* , onMovieClick, moviesFromApi  */}) => {
+//   console.log(movie);
+//   return (
+//     <Container>
+//       <Col>
+//         <Card className="dh-100; card" bg="info" text="dark">
+//           <Card.Img variant="top" src={movie.image} />
+//            <Card.Body>
+//              <Card.Title>{movie.title}</Card.Title>
+//               <Card.Text>{movie.director.name}</Card.Text>
+//           </Card.Body>
+//           <Card.Footer>
+//             <Link to={`/movies/${encodeURIComponent(movie.id)}`}>
+//               <Button className="btn-login" bg="warning">Open</Button>
+//             </Link>
+//           </Card.Footer>
+//         </Card>
+//       </Col>
+//     </Container>
+//   );
+// };
+
+// // Here is where we define all the props constraints for the MovieCard
+// MovieCard.propTypes = {
+//   movie: PropTypes.shape({
+//     title: PropTypes.string.isRequired,
+//     image: PropTypes.string.isRequired,
+//     director: PropTypes.shape({
+//       name: PropTypes.string.isRequired,
+//     }),
+//     genre: PropTypes.shape({
+//       name: PropTypes.string.isRequired,
+//     }),
+//   }).isRequired,
+// };
+
+import React from 'react';
+import PropTypes from 'prop-types';
+import axios from 'axios';
+
+import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
+
+
 import { Link } from "react-router-dom";
 
+export class MovieCard extends React.Component {
+  render() {
+    const { movie } = this.props;
 
-export const MovieCard = ({ movie/* , onMovieClick, moviesFromApi  */}) => {
-  console.log(movie);
-  return (
-    <Container>
-      <Col>
-        <Card className="dh-100; card" bg="info" text="dark">
-          <Card.Img variant="top" src={movie.image} />
-           <Card.Body>
-             <Card.Title>{movie.title}</Card.Title>
-              <Card.Text>{movie.director.name}</Card.Text>
+    return (
+      <Card>
+        <Card.Img variant="top" src={movie.ImagePath} />
+        <Card.Body>
+          <Card.Title>{movie.Title}</Card.Title>
+          <Card.Text>{movie.Description}</Card.Text>
           </Card.Body>
           <Card.Footer>
-            <Link to={`/movies/${encodeURIComponent(movie.id)}`}>
-              <Button className="btn-login" bg="warning">Open</Button>
-            </Link>
+          <Link to={`/movies/${movie._id}`}>
+            <Button variant="primary">More Information</Button>
+          </Link>
+        
           </Card.Footer>
-        </Card>
-      </Col>
-    </Container>
-  );
-};
-
-// Here is where we define all the props constraints for the MovieCard
+      </Card>
+    );
+  }
+}
 MovieCard.propTypes = {
   movie: PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    image: PropTypes.string.isRequired,
-    director: PropTypes.shape({
-      name: PropTypes.string.isRequired,
-    }),
-    genre: PropTypes.shape({
-      name: PropTypes.string.isRequired,
-    }),
+    Title: PropTypes.string.isRequired,
+    Description: PropTypes.string.isRequired,
+    ImagePath: PropTypes.string.isRequired
   }).isRequired,
+  onMovieClick: PropTypes.func.isRequired
 };
