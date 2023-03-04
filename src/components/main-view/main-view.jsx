@@ -1,11 +1,13 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { MovieCard } from "../movie-card/movie-card";
 import { MovieView } from "../movie-view/movie-view";
 import { LoginView } from "../login-view/login-view";
-import { SignupView } from "../signup-view/signup-view";
+import { RegistrationView } from "../registration-view/registration-view";
 import {ProfileView} from "../profile-view/profile-view";
+import { DirectorView } from "../director-view/director-view";
+import { GenreView } from "../genre-view/genre-view";
 import { NavigationBar } from "../navigation-bar/navigation-bar";
-import { Navbar, Nav, Container, Row, Col, Button } from "react-bootstrap";
+import { Navbar, Nav, Container, Row, Col, Button, Form } from "react-bootstrap";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 
@@ -17,6 +19,8 @@ export const MainView = () => {
   const [movies, setMovies] = useState([]);
   const [token, setToken] = useState(null);
   //setUser(storedUser);
+  const [searchString, setSearchString] = useState("");
+  const [filteredMovies, setFilteredMovies] = useState([]);
 
   console.log("storedToken0");
   console.log(storedToken);
@@ -58,6 +62,33 @@ export const MainView = () => {
       });
   }, [storedToken]);
 
+  function movieSearch(searchString) {
+    setFilteredMovieList(
+      movies.filter((movie) => movie.title.toLowerCase().includes(searchString))
+    );
+  }
+
+  // Filter the list of movies by what was typed in the search bar
+  //Check by Title, Director, and Genre
+  useEffect(() => {
+    if (searchString && searchString.length > 0) {
+      const searchedMoviesData = movies.filter(
+        (m) =>
+          m.title.toLowerCase().includes(searchString.toLowerCase().trim()) ||
+          m.genre.Name.toLowerCase().includes(
+            searchString.toLowerCase().trim()
+          ) ||
+          m.director.Name.toLowerCase().includes(
+            searchString.toLowerCase().trim()
+          )
+      );
+      setFilteredMovies(searchedMoviesData);
+    } else {
+      setFilteredMovies([]);
+    }
+  }, [searchString]);
+
+
 
   return (
     <BrowserRouter>
@@ -80,7 +111,7 @@ export const MainView = () => {
                   <Navigate to="/" />
                 ) : (
                   <Col md={5} xs={12}>
-                    <SignupView />
+                    <RegistrationView />
                   </Col>
                 )}
               </>
@@ -158,8 +189,48 @@ export const MainView = () => {
               </>
             }
           />
+           <Route
+            path="/"
+            element={
+              <>
+                <Row className="search-bar justify-content-end m-0 mt-3">
+                  <Col md={3} className="mb-3">
+                    <Form>
+                      <Form.Control
+                        type="text"
+                        placeholder="Search by Title, Genre, or Director"
+                        value={searchString}
+                        onChange={(e) => setSearchString(e.target.value)}
+                        className="bg-light shadow-sm"
+                      />
+                    </Form>
+                  </Col>
+                </Row>
+                {!user ? (
+                  <Navigate to="/login" replace />
+                ) : movies.length === 0 ? (
+                  <Col>The List is Empty!</Col>
+                ) : (
+                  <>
+                    {filteredMovies && filteredMovies.length > 0
+                      ? filteredMovies.map((movie) => (
+                          <Col className="mb-4" key={movie.id} md={3}>
+                            <MovieCard movie={movie} user={user} />
+                          </Col>
+                        ))
+                      : movies.map((movie) => (
+                          <Col className="mb-4" key={movie.id} md={3}>
+                            <MovieCard movie={movie} user={user} />
+                          </Col>
+                        ))}
+                  </>
+                )}
+              </>
+            }
+          />
         </Routes>
       </Row>
     </BrowserRouter>
   );
 };
+
