@@ -31,8 +31,9 @@ function UpdateUser({ handleSubmit, handleUpdate, user }) {
                       type="text"
                       name="Username"
                       defaultValue={user && user.Username}
-                      placeholder="Type your new Username"
+                      placeholder="Unable to change username"
                       className="form-control"
+                      disabled="{true ? true}"
                    
                     />
                   </Form.Group>

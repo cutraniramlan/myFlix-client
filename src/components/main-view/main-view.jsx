@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { MovieCard } from "../movie-card/movie-card";
 import { MovieView } from "../movie-view/movie-view";
 import { LoginView } from "../login-view/login-view";
-import { RegistrationView } from "../registration-view/registration-view";
+import { SignupView } from "../signup-view/signup-view";
 import {ProfileView} from "../profile-view/profile-view";
 import { DirectorView } from "../director-view/director-view";
 import { GenreView } from "../genre-view/genre-view";
@@ -18,6 +18,12 @@ export const MainView = () => {
   const [user, setUser] = useState(storedUser ? storedUser : null);
   const [movies, setMovies] = useState([]);
   const [token, setToken] = useState(null);
+  if (!storedUser && storedToken)
+  {
+    setUser(null);
+    setToken(null);
+    localStorage.clear();
+  }
   //setUser(storedUser);
   const [searchString, setSearchString] = useState("");
   const [filteredMovies, setFilteredMovies] = useState([]);
@@ -63,11 +69,12 @@ export const MainView = () => {
   }, [storedToken]);
 
   function movieSearch(searchString) {
-    setFilteredMovieList(
+    setFilteredMovies(
       movies.filter((movie) => movie.title.toLowerCase().includes(searchString))
     );
   }
 
+  
   // Filter the list of movies by what was typed in the search bar
   //Check by Title, Director, and Genre
   useEffect(() => {
@@ -75,10 +82,10 @@ export const MainView = () => {
       const searchedMoviesData = movies.filter(
         (m) =>
           m.title.toLowerCase().includes(searchString.toLowerCase().trim()) ||
-          m.genre.Name.toLowerCase().includes(
+          m.genre.name.toLowerCase().includes(
             searchString.toLowerCase().trim()
           ) ||
-          m.director.Name.toLowerCase().includes(
+          m.director.name.toLowerCase().includes(
             searchString.toLowerCase().trim()
           )
       );
@@ -111,7 +118,7 @@ export const MainView = () => {
                   <Navigate to="/" />
                 ) : (
                   <Col md={5} xs={12}>
-                    <RegistrationView />
+                    <SignupView />
                   </Col>
                 )}
               </>
@@ -155,7 +162,7 @@ export const MainView = () => {
             }
           />
 
-          <Route
+          {/* <Route
             path="/"
             element={
               <>
@@ -174,7 +181,7 @@ export const MainView = () => {
                 )}
               </>
             }
-          />
+          /> */}
          <Route
             path="/user"
             element={
